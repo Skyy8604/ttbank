@@ -11,29 +11,29 @@ import javax.validation.constraints.NotNull;
 @Entity(name = "trading_account")
 public class TradingAccount {
 
-    @Id
-    @NotBlank(message = "email_cannot_be_blank")
-    @NotNull(message = "email_cannot_be_null")
-    private String id;
+	@Id
+	@NotBlank(message = "id_cannot_be_blank")
+	@NotNull(message = "id_cannot_be_null")
+	private String id;
 
-    @ManyToOne
-    @JsonbTransient
-    @JoinColumn(name = "user_id")
-    private User user;
+	@ManyToOne
+	@JsonbTransient
+	@JoinColumn(name = "user_email")
+	private User user;
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public User getUser() {
-        return user;
-    }
+	public User getUser() {
+		return user;
+	}
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+	public void setUser(User user) {
+		this.user = user;
+	}
 }
