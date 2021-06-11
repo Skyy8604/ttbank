@@ -1,0 +1,19 @@
+import {Injectable} from '@angular/core';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {tokenGetter} from '../app.module';
+
+@Injectable({providedIn: 'root'})
+export class AuthService{
+
+  constructor(public jwtHelper: JwtHelperService) {
+  }
+
+  authorizeToken(): boolean {
+    const token = tokenGetter();
+    try {
+      return !this.jwtHelper.isTokenExpired(token);
+    } catch (e) {
+      return false;
+    }
+  }
+}
