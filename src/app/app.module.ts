@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import {JwtModule} from '@auth0/angular-jwt';
 import {ErrorComponent} from "./components/error/error.component";
+import {AppRoutingModule} from "./app-routing.module";
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -18,6 +19,7 @@ export function tokenGetter(): any {
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {
