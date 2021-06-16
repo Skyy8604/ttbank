@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeTtbankComponent } from './home-ttbank.component';
+import { HomeTTBankComponent } from './home-ttbank.component';
 
 describe('HomeTtbankComponent', () => {
-  let component: HomeTtbankComponent;
-  let fixture: ComponentFixture<HomeTtbankComponent>;
+  let component: HomeTTBankComponent;
+  let fixture: ComponentFixture<HomeTTBankComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeTtbankComponent ]
+      declarations: [ HomeTTBankComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeTtbankComponent);
+    fixture = TestBed.createComponent(HomeTTBankComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

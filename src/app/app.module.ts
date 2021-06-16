@@ -15,7 +15,7 @@ import { MyPositionsOverviewComponent } from './components/my-positions-overview
 import { ListHistoricCashTransactionsComponent } from './components/list-historic-cash-transactions/list-historic-cash-transactions.component';
 import { ListHisctoricTradesComponent } from './components/list-hisctoric-trades/list-hisctoric-trades.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { HomeTtbankComponent } from './components/home-ttbank/home-ttbank.component';
+import { HomeTTBankComponent } from './components/home-ttbank/home-ttbank.component';
 import { LoginComponent } from './components/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
@@ -37,7 +37,7 @@ export function tokenGetter(): any {
     ListHistoricCashTransactionsComponent,
     ListHisctoricTradesComponent,
     ContactComponent,
-    HomeTtbankComponent,
+    HomeTTBankComponent,
     LoginComponent
   ],
   imports: [
