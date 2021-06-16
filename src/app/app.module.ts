@@ -17,6 +17,7 @@ import { ListHisctoricTradesComponent } from './components/list-hisctoric-trades
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeTtbankComponent } from './components/home-ttbank/home-ttbank.component';
 import { LoginComponent } from './components/login/login.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -51,6 +52,7 @@ export function tokenGetter(): any {
         disallowedRoutes: [],
       },
     }),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

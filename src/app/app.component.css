@@ -1,0 +1,21 @@
+.logbutton {
+  margin-right: 1rem;
+  margin-top: 10px;
+  height: 40px;
+  vertical-align: middle;
+  order: 1;
+}
+
+.headerImage {
+  order: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: #162539;
+}
+
+.headerNavbar {
+  padding-left: 50%;
+}
