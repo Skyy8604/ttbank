@@ -1,1 +1,64 @@
-<p>transfer-money works!</p>
+<form>
+  <link rel="stylesheet" href="transfer-money.component.css">
+  <div>
+    <h1>Transfer money</h1>
+    <div class="wrapper-transfer-money-form">
+      <div class="wrapper-left-column">
+        <div>
+          <label for="iban">IBAN:</label>
+          <br>
+          <input type="text" id="iban" class="input_textfield" name="iban" required
+                 minlength="26" maxlength="40" size="10">
+        </div>
+        <div>
+          <label for="iban">Adress:</label>
+          <br>
+          <input type="text" id="adress_name" class="input_adress" name="adress" required
+                 maxlength="50"  size="30"><br>
+          <input type="text" id="adress_street" class="input_adress" name="adress"
+                  maxlength="50" size="30"><br>
+          <input type="text" id="adress_zipCode" class="input_adress" name="adress"
+                  maxlength="50" size="30"><br>
+          <input type="text" id="town" class="input_adress" name="town"
+                 maxlength="50" size="30">
+        </div>
+        <div>
+          <label for="iban">Amount:</label>
+          <br>
+          <input type="text" id="amount" class="input_amount" name="iban" required
+                 minlength="3" maxlength="8" size="10">
+          <p>Currency: CHF</p>
+        </div>
+        <div>
+          <label for="usage">Usage: (optional)</label>
+          <br>
+          <input type="text" id="usage" class="input_booking_text" name="usage"
+                 maxlength="100" size="10">
+        </div>
+        <div>
+          <label for="booking_text">Booking text: (optional)</label>
+          <br>
+          <input type="text" id="booking_text"  class="input_booking_text" name="booking_text"
+                 maxlength="50" size="10">
+        </div>
+      </div>
+      <div class="wrapper-right-column">
+        <div>
+          <label for="account_select">From:</label><br>
+
+          <select  class="dropdown_accounts" name="accounts" id="account_select">
+            <option value="KontoXY">KontoXY</option>
+            <option value="KontoXY2">KontoXY2</option>
+          </select>
+        </div>
+        <div>
+          <label for="date">Date:</label>
+          <br>
+          <input type="date" id="date" name="date"
+                 minlength="10" maxlength="10" size="15">
+        </div>
+        <button class="send_button" type="submit">Send</button>
+      </div>
+    </div>
+  </div>
+</form>
