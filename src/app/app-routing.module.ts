@@ -12,6 +12,10 @@ const routes: Routes = [
     //canActivate: [AuthGuard] -> zugang nur wenn eingeloggt
   },
   {
+    path: '',
+    component: HomeTTBankComponent
+  },
+  {
     path: 'home',
     component: HomeTTBankComponent
   },
