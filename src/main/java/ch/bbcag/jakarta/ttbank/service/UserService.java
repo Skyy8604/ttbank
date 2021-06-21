@@ -3,11 +3,13 @@ package ch.bbcag.jakarta.ttbank.service;
 import ch.bbcag.jakarta.ttbank.exception.EmailAlreadyExistsException;
 import ch.bbcag.jakarta.ttbank.model.User;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 
+@Stateless
 public class UserService {
 
     @PersistenceContext

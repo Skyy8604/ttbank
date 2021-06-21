@@ -7,8 +7,10 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
+import javax.ejb.Stateless;
 import java.util.Date;
 
+@Stateless
 public class JwtService {
 	private final String ISSUER = "gameXchange";
 	private final String SIGNING_KEY = "secret";

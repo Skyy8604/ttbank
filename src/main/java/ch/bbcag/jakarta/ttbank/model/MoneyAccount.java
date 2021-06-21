@@ -27,10 +27,10 @@ public class MoneyAccount {
 	@NotNull(message = "balance_cannot_be_null")
 	private float balance;
 
-	@OneToMany(mappedBy = "senderAcountId")
+	@OneToMany(mappedBy = "senderAccountId")
 	private Set<Transaction> transactionsSend;
 
-	@OneToMany(mappedBy = "receiverAcountId")
+	@OneToMany(mappedBy = "receiverAccountId")
 	private Set<Transaction> transactionsReceive;
 
 	public String getId() {
