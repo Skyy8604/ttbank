@@ -1,0 +1,78 @@
+body{
+  font-family: "Segoe UI";
+}
+
+h1{
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+.wrapper-transfer-money-form{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: dense;
+  justify-content: center;
+  margin-left: 10%;
+}
+
+.wrapper-left-column{
+  grid-column: 1;
+}
+
+.wrapper-right-column{
+  grid-column: 2;
+}
+
+.border-input{
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px black;
+}
+
+.input_textfield {
+  padding: 8px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 30%;
+}
+
+.input_adress {
+  padding: 8px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.input_amount {
+  padding: 8px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.input_booking_text {
+  padding: 8px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 50%;
+}
+
+.dropdown_accounts {
+  size: 100px;
+  margin-bottom: 10%;
+}
+
+.send_button{
+  border-right: 2px;
+  background-color: #192537;
+  font-size: 20px;
+  width: 20%;
+  height: 10%;
+  color: white;
+  margin-top: 17%;
+}
