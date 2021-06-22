@@ -5,20 +5,25 @@ import {AuthGuard} from './auth/AuthGuard';
 import {ErrorComponent} from './components/error/error.component';
 import {HomeTTBankComponent} from './components/home-ttbank/home-ttbank.component';
 import {HomeEbankingComponent} from './components/home-ebanking/home-ebanking.component';
+import {LoginComponent} from "./components/login/login.component";
 
 const routes: Routes = [
-  {
-    path: 'signup',
-    component: RegisterComponent
-    //canActivate: [AuthGuard] -> zugang nur wenn eingeloggt
-  },
   {
     path: '',
     component: HomeTTBankComponent
   },
   {
     path: 'home',
-    component: HomeTTBankComponent
+    component: HomeTTBankComponent,
+    // canActivate: [AuthGuard] -> beispiel
+  },
+  {
+    path: 'signup',
+    component: RegisterComponent
+  },
+  {
+    path: 'signin',
+    component: LoginComponent
   },
   {
     path: 'home-ebanking',
