@@ -1,0 +1,6 @@
+# IntelliJ
+.idea/
+bbc-jsf-skeleton-1.0.0.iml
+
+# Compile output
+target/

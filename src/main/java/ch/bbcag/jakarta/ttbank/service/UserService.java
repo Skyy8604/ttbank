@@ -1,6 +1,8 @@
 package ch.bbcag.jakarta.ttbank.service;
 
 import ch.bbcag.jakarta.ttbank.exception.EmailAlreadyExistsException;
+import ch.bbcag.jakarta.ttbank.exception.WrongEmailException;
+import ch.bbcag.jakarta.ttbank.exception.WrongPasswordException;
 import ch.bbcag.jakarta.ttbank.model.User;
 
 import javax.ejb.Stateless;
@@ -12,29 +14,44 @@ import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 @Stateless
 public class UserService {
 
-    @PersistenceContext
-    private EntityManager em;
+	@PersistenceContext
+	private EntityManager em;
 
-    @Inject
-    private Pbkdf2PasswordHash passwordHash;
+	@Inject
+	private Pbkdf2PasswordHash passwordHash;
 
-    public User register(String email, String lastName, String firstName, String passwordNotHashed) {
-        User userWithSameEmail = em.find(User.class, email);
+	public User register(String email, String lastName, String firstName, String passwordNotHashed) {
+		User userWithSameEmail = em.find(User.class, email);
 
-        if (userWithSameEmail != null) {
-            throw new EmailAlreadyExistsException();
-        }
+		if (userWithSameEmail != null) {
+			throw new EmailAlreadyExistsException();
+		}
 
-        User newUser = new User();
-        String password = passwordHash.generate(passwordNotHashed.toCharArray());
+		User newUser = new User();
+		String password = passwordHash.generate(passwordNotHashed.toCharArray());
 
-        newUser.setEmail(email);
-        newUser.setPassword(password);
-        newUser.setFirstName(firstName);
-        newUser.setLastName(lastName);
+		newUser.setEmail(email);
+		newUser.setPassword(password);
+		newUser.setFirstName(firstName);
+		newUser.setLastName(lastName);
 
-        em.persist(newUser);
+		em.persist(newUser);
 
-        return newUser;
-    }
+		return newUser;
+	}
+
+	public User login(String email, String password) {
+		User user = em.find(User.class, email);
+
+		if (user == null) {
+			throw new WrongEmailException();
+		} else {
+			if (passwordHash.verify(password.toCharArray(), user.getPassword())) {
+				return user;
+			} else {
+				throw new WrongPasswordException();
+			}
+		}
+
+	}
 }

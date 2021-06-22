@@ -12,16 +12,18 @@ import java.util.Date;
 
 @Stateless
 public class JwtService {
-	private final String ISSUER = "gameXchange";
+	private final String ISSUER = "TTBank";
 	private final String SIGNING_KEY = "secret";
 
-	public String generateJwt(String subject) {
+	public String generateJwt(String subject, String fName, String lName) {
 		String token;
 		try {
 			Algorithm algorithm = Algorithm.HMAC256(SIGNING_KEY);
 			token = JWT.create()
 					.withIssuer(ISSUER)
 					.withClaim("sub", subject)
+					.withClaim("fName", fName)
+					.withClaim("lName", lName)
 					.withIssuedAt(new Date())
 					.withExpiresAt(new Date(new Date().getTime() + 31154000000L))
 					.sign(algorithm);
@@ -42,4 +44,3 @@ public class JwtService {
 		}
 	}
 }
-
