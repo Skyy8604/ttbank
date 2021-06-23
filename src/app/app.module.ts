@@ -18,6 +18,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { HomeTTBankComponent } from './components/home-ttbank/home-ttbank.component';
 import { LoginComponent } from './components/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {AlertModule} from "./components/alert";
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -38,11 +40,13 @@ export function tokenGetter(): any {
     ListHisctoricTradesComponent,
     ContactComponent,
     HomeTTBankComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AlertModule,
+    HttpClientModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

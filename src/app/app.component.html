@@ -2,12 +2,13 @@
   <a class="navbar-brand" routerLink="home">
     <img src="../assets/logo_banner.png" alt="logo" width="111" height="50">
   </a>
-  <button *ngIf="isLoggedIn" class="btn btn-outline-secondary logbutton" type="submit" routerLink="../signout">Log out
-  </button>
-  <button *ngIf="!isLoggedIn" class="btn btn-outline-secondary my-2 my-sm-0 logbutton" type="submit"
+  <div *ngIf="isLoggedIn()" style="color: white; width: 85%; margin: auto">Hello, {{authService.getFName()}} {{authService.getLName()}}</div>
+  <button *ngIf="isLoggedIn()" class="btn btn-outline-secondary logbutton" type="submit" routerLink="../home" (click)="signOut()">Log out</button>
+  <button *ngIf="!isLoggedIn()" class="btn btn-outline-secondary logbutton" type="submit"
           routerLink="../signin">Log in
   </button>
 </div>
 
+<alert></alert>
 <router-outlet></router-outlet>
-<p class="mt-5 mb-3 text-muted paddingLeft">© ICT Berufsbildungscenter AG 2021</p>
+<p class="mt-5 mb-3 text-muted" style="margin-left: 1rem">© ICT Berufsbildungscenter AG 2021</p>
