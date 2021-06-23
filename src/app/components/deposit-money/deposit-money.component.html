@@ -1,1 +1,71 @@
-<p>deposit-money works!</p>
+<form>
+  <link rel="stylesheet" href="deposit-money.component.css">
+  <div>
+    <h1>Deposit money</h1>
+    <div class="wrapper-deposit-money">
+      <div class="wrapper-left-column">
+        <div>
+          <p>Select a payment method:</p>
+        </div>
+        <div>
+          <div class="columns_logo">
+          <img class="logo_left_column" src="logo_visa_mastercard.png">
+          <img class="logo_middle_column"src="logo_paypal.jpg">
+          <img class="logo_right_column" src="logo_TTBank.png">
+          </div>
+          <div class="togglebutton_logo" aria-required="true">
+            <input type="radio" id="visa_master" name="payment_method" value="visa_master">
+            <label for="visa_master">Visa/Mastercard</label>
+            <input type="radio" id="paypal" name="payment_method" value="paypal">
+            <label for="visa_master">PayPal</label>
+            <input type="radio" id="e-banking" name="payment_method" value="ebanking">
+            <label for="visa_master">E-Banking</label>
+          </div>
+        </div>
+        <div class="grid-rows-ebanking-text">
+          <p class="grid-row-1">E-Banking: you have to open the e-banking of your primary bank<br>
+          and enter the informations below.
+          </p>
+          <p class="grid-row-2">Anastasia Spasojevic</p>
+          <p class="grid-row-3">CH45 4564 4566 4564 6454 3</p>
+          <p class="grid-row-4">Beispielstrasse 23</p>
+          <p class="grid-row-5">8000 Zurich</p>
+          <p class="grid-row-6">Schweiz</p>
+        </div>
+        <div>
+          <label for="amount">Amount:</label><br>
+          <input type="text" id="amount" class="" name="amount" required
+                 minlength="26" maxlength="40" size="10">
+          <p>CHF</p>
+        </div>
+      </div>
+      <div class="wrapper-right-column">
+        <div>
+          <p>Credit card data</p>
+        </div>
+        <div>
+          <label for="prename_lastname">Prename and lastname:</label><br>
+          <input type="text" id="prename_lastname" class="textfield_prename_lastname" name="prename_lastname" required
+                 minlength="26" maxlength="40" size="10">
+        </div>
+        <div>
+          <label for="creditcard_number">Credit card number:</label><br>
+          <input type="text" id="creditcard_number" class="textfield_creditcard_no" name="creditcard_number" required
+                 minlength="26" maxlength="40" size="10">
+        </div>
+        <div>
+          <label for="valid_to">Valid to:</label><br>
+          <input type="text" id="valid_to" class="textfield_validTo" name="valid_to" required
+                 minlength="26" maxlength="40" size="10">
+        </div>
+        <div>
+          <label for="cvv">CVV:</label><br>
+          <input type="text" id="cvv" class="textfield_CVV" name="cvv" required
+                 minlength="26" maxlength="40" size="10">
+        </div>
+        <button class="button" type="submit">Send</button>
+      </div>
+    </div>
+  </div>
+</form>
+
