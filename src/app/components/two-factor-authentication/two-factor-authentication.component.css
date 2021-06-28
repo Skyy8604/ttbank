@@ -12,15 +12,19 @@
   margin-left: 10%;
 }
 
-.go-to-register-button {
-  margin-left: 1rem;
-}
-
-.signin-title {
+.tfa-title {
   margin-top: 5rem;
   margin-bottom: 3rem;
   font-size: xxx-large;
   color: #162539;
   font-weight: normal;
+  text-align: center;
+}
+
+.tfa-secondnary-title {
+  margin-bottom: 2rem;
+  font-size: x-large;
+  color: #162539;
+  font-weight: lighter;
   text-align: center;
 }

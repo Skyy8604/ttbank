@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {AlertModule} from "./components/alert";
+import { TwoFactorAuthenticationComponent } from './components/two-factor-authentication/two-factor-authentication.component';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -41,6 +42,7 @@ export function tokenGetter(): any {
     ContactComponent,
     HomeTTBankComponent,
     LoginComponent,
+    TwoFactorAuthenticationComponent,
   ],
   imports: [
     BrowserModule,

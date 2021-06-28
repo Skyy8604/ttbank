@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {timeout} from "rxjs/operators";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -24,14 +23,26 @@ export class UserService {
     }).subscribe(value => console.log('registriert'));
   }
 
-  public signIn(email: string, password: string): Observable<ResponseDTO> {
-    return this.httpClient.post<ResponseDTO>(this.baseURL + '/signin', {
+  public signIn(email: string, password: string): Observable<emailDTO> {
+    return this.httpClient.post<emailDTO>(this.baseURL + '/signin', {
       email,
       password
+    })
+  }
+
+  public twoFactor(code: string): Observable<ResponseDTO> {
+    let email = localStorage.getItem('email');
+    return this.httpClient.post<ResponseDTO>(this.baseURL + '/tfa', {
+      code,
+      email
     })
   }
 }
 
 interface ResponseDTO {
   token: string;
+}
+
+interface emailDTO {
+  email: string;
 }

@@ -1,0 +1,9 @@
+<form class="mb-3 register" [formGroup]="twoFactorForm" (ngSubmit)="onSubmit()">
+  <h1 class="tfa-title">Two Factor Authentication</h1>
+  <h3 class="tfa-secondnary-title">In order to keep your data safe we use two factor authentication (2FA). We've sent a code to your email (email) which you have to enter below </h3>
+  <div class="form-group inputDiv">
+    <label class="label" for="code">Code:</label>
+    <input type="text" formControlName="code" class="form-control" id="code" aria-describedby="emailHelp" placeholder="5X23H0T7"  required/>
+  </div>
+  <button class="btn btn-outline-dark signin-button" type="submit">Sign In</button>
+</form>
