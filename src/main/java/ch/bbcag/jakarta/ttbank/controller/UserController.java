@@ -1,21 +1,16 @@
 package ch.bbcag.jakarta.ttbank.controller;
 
+import ch.bbcag.jakarta.ttbank.common.RandomStringGenerator;
 import ch.bbcag.jakarta.ttbank.exception.WrongEmailException;
 import ch.bbcag.jakarta.ttbank.exception.WrongPasswordException;
-import ch.bbcag.jakarta.ttbank.model.AuthRequestDTO;
-import ch.bbcag.jakarta.ttbank.model.ErrorResponseDTO;
-import ch.bbcag.jakarta.ttbank.model.ResponseDTO;
-import ch.bbcag.jakarta.ttbank.model.User;
+import ch.bbcag.jakarta.ttbank.model.*;
 import ch.bbcag.jakarta.ttbank.service.JwtService;
 import ch.bbcag.jakarta.ttbank.service.UserService;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.validation.Valid;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -47,11 +42,11 @@ public class UserController {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response login(@Valid AuthRequestDTO userEmailPassword) {
-		ResponseDTO responseDTO = new ResponseDTO();
-		User user;
-
+		EmailDTO emailDTO = new EmailDTO();
 		try {
-			user = userService.login(userEmailPassword.getEmail(), userEmailPassword.getPassword());
+			userService.login(userEmailPassword.getEmail(), userEmailPassword.getPassword());
+			userService.saveTwoFactorCode(RandomStringGenerator.getRandomString(8), userEmailPassword.getEmail());
+			//todo send email with code
 		} catch (WrongEmailException e) {
 			ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO("wrong_email");
 			return Response
@@ -66,11 +61,33 @@ public class UserController {
 					.build();
 		}
 
-
-		responseDTO.setToken(jwtService.generateJwt(user.getEmail(), user.getFirstName(), user.getLastName()));
+		emailDTO.setEmail(userEmailPassword.getEmail());
 		return Response
 				.status(Response.Status.OK)
-				.entity(responseDTO)
+				.entity(emailDTO)
 				.build();
+	}
+
+	@POST
+	@Path("tfa")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response twoFactor(@Valid TwoFactorAuthenticationDTO twoFactorAuthenticationDTO) {
+		ResponseDTO responseDTO = new ResponseDTO();
+
+		if (userService.checkTwoFactorCode(twoFactorAuthenticationDTO.getCode(), twoFactorAuthenticationDTO.getEmail())) {
+			userService.deleteTwoFactorCode(twoFactorAuthenticationDTO.getEmail());
+			User user = userService.getUserByEmail(twoFactorAuthenticationDTO.getEmail());
+			responseDTO.setToken(jwtService.generateJwt(user.getEmail(), user.getFirstName(), user.getLastName()));
+			return Response
+					.status(Response.Status.OK)
+					.entity(responseDTO)
+					.build();
+		} else {
+			return Response
+					.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(responseDTO)
+					.build();
+		}
 	}
 }

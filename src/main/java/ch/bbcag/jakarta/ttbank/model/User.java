@@ -34,6 +34,9 @@ public class User {
 	@Pattern(regexp = "(?=.*[A-Z]+)(?=.*[0-9]+).{8,}", message = "invalid_password")
 	private String password;
 
+	@Column(name = "tfa_code")
+	private String tfa_code;
+
 	@OneToMany(mappedBy = "user")
 	private Set<Position> positions;
 
@@ -71,6 +74,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getTfa_code() {
+		return tfa_code;
+	}
+
+	public void setTfa_code(String tfaCode) {
+		this.tfa_code = tfaCode;
 	}
 
 	public Set<Position> getPositions() {
