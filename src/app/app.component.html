@@ -2,10 +2,13 @@
   <a class="navbar-brand" routerLink="home">
     <img src="../assets/logo_banner.png" alt="logo" width="111" height="50">
   </a>
-  <div *ngIf="isLoggedIn()" style="color: white; width: 85%; margin: auto">Hello, {{authService.getFName()}} {{authService.getLName()}}</div>
-  <button *ngIf="isLoggedIn()" class="btn btn-outline-secondary logbutton" type="submit" routerLink="../home" (click)="signOut()">Log out</button>
+  <div *ngIf="isLoggedIn()" style="color: white; width: 85%; margin: auto">
+    Hello, {{authService.getFName()}} {{authService.getLName()}}</div>
+  <button *ngIf="isLoggedIn()" class="btn btn-outline-secondary logbutton" type="submit" routerLink="../home"
+          (click)="signOut()">Log out
+  </button>
   <button *ngIf="!isLoggedIn()" class="btn btn-outline-secondary logbutton" type="submit"
-          routerLink="../signin">Log in
+          routerLink="../signin">Log in or create an account
   </button>
 </div>
 
