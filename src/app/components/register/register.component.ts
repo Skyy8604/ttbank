@@ -29,12 +29,15 @@ export class RegisterComponent implements OnInit {
   onSubmit(): void {
     if (this.signUpForm.valid) {
       this.userService.signUp(this.signUpForm.controls.fName.value, this.signUpForm.controls.lName.value,
-        this.signUpForm.controls.email.value, this.signUpForm.controls.password.value);
-      this.alertService.success('You have successfully been registered!', {
-        autoClose: true,
-        keepAfterRouteChange: true
+        this.signUpForm.controls.email.value, this.signUpForm.controls.password.value).subscribe( value => {
+        this.alertService.success('You have successfully been registered!', {
+          autoClose: true,
+          keepAfterRouteChange: true
+        });
+        this.router.navigate(['/home']);
+      }, error => {
+          this.alertService.error('Unfortunately something went wrong while signing up. Plese try again. Error: ' + error.status)
       });
-      this.router.navigate(['/home']);
     } else {
       this.alertService.error('Registration Failed. You haven\'t filled out the form correctly.', {
         autoClose: false,
