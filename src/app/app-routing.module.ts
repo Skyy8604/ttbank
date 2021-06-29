@@ -7,6 +7,7 @@ import {HomeTTBankComponent} from './components/home-ttbank/home-ttbank.componen
 import {HomeEbankingComponent} from './components/home-ebanking/home-ebanking.component';
 import {LoginComponent} from "./components/login/login.component";
 import {TwoFactorAuthenticationComponent} from "./components/two-factor-authentication/two-factor-authentication.component";
+import {ContactComponent} from "./components/contact/contact.component";
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'home-ebanking',
     component: HomeEbankingComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
   },
   {
     path: '**',

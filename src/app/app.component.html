@@ -13,5 +13,71 @@
 </div>
 
 <alert></alert>
-<router-outlet></router-outlet>
-<p class="mt-5 mb-3 text-muted" style="margin-left: 1rem">© ICT Berufsbildungscenter AG 2021</p>
+
+<div *ngIf="isLoggedIn()" style="display: flex; top: 0;">
+  <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+    <a routerLink="../home"
+       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <span class="fs-4" style="margin-left: 2rem;">Navigation</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item" routerLink="../home">
+        <a class="nav-link link-dark">
+          Home
+        </a>
+      </li>
+      <li>
+        <a  class="nav-link link-dark">
+          Transfer money
+        </a>
+      </li>
+      <li>
+        <a class="nav-link link-dark">
+          Account transfer
+        </a>
+      </li>
+      <li>
+        <a class="nav-link link-dark">
+          Deposit money
+        </a>
+      </li>
+      <li>
+        <a class="nav-link link-dark">
+          Account overview
+        </a>
+      </li>
+      <li>
+        <a class="nav-link link-dark">
+          Trade
+        </a>
+      </li>
+      <li>
+        <a class="nav-link link-dark">
+          MyPositions overview
+        </a>
+      </li>
+      <li>
+        <a class="nav-link link-dark">
+          Cash transactions
+        </a>
+      </li>
+      <li>
+        <a class="nav-link link-dark">
+          trade transactions
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <strong class="log-out-text" routerLink="../contact">Contact us</strong>
+      <br>
+      <strong class="log-out-text" (click)="signOut()" routerLink="../home">Log out</strong>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+
+<router-outlet *ngIf="!isLoggedIn()"></router-outlet>
+
+<p class="mt-5 mb-3 text-muted" style="margin-left: 1rem; ">© ICT Berufsbildungscenter AG 2021</p>
