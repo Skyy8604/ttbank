@@ -8,6 +8,13 @@ import {HomeEbankingComponent} from './components/home-ebanking/home-ebanking.co
 import {LoginComponent} from "./components/login/login.component";
 import {TwoFactorAuthenticationComponent} from "./components/two-factor-authentication/two-factor-authentication.component";
 import {ContactComponent} from "./components/contact/contact.component";
+import {DepositMoneyComponent} from "./components/deposit-money/deposit-money.component";
+import {ListHistoricCashTransactionsComponent} from "./components/list-historic-cash-transactions/list-historic-cash-transactions.component";
+import {TradeComponent} from "./components/trade/trade.component";
+import {TransferMoneyComponent} from "./components/transfer-money/transfer-money.component";
+import {AccountTransferComponent} from "./components/account-transfer/account-transfer.component";
+import {ListHisctoricTradesComponent} from "./components/list-hisctoric-trades/list-hisctoric-trades.component";
+import {MyPositionsOverviewComponent} from "./components/my-positions-overview/my-positions-overview.component";
 
 const routes: Routes = [
   {
@@ -17,7 +24,6 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeTTBankComponent,
-    // canActivate: [AuthGuard] -> beispiel
   },
   {
     path: 'signup',
@@ -33,11 +39,47 @@ const routes: Routes = [
   },
   {
     path: 'home-ebanking',
-    component: HomeEbankingComponent
+    component: HomeEbankingComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'deposit-money',
+    component: DepositMoneyComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'historic-cash-transactions',
+    component: ListHistoricCashTransactionsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'trade',
+    component: TradeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'transfer',
+    component: TransferMoneyComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'account-transfer',
+    component: AccountTransferComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'historic-trades',
+    component: ListHisctoricTradesComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'my-positions',
+    component: MyPositionsOverviewComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
