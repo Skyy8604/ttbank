@@ -36,7 +36,11 @@ export class RegisterComponent implements OnInit {
         });
         this.router.navigate(['/home']);
       }, error => {
-          this.alertService.error('Unfortunately something went wrong while signing up. Plese try again. Error: ' + error.status)
+          if (error.status == 400) {
+            this.alertService.error('There is already an account registered with this email.')
+          } else {
+            this.alertService.error('Unfortunately something went wrong while signing up. Please try again. Error: ' + error.status);
+          }
       });
     } else {
       this.alertService.error('Registration Failed. You haven\'t filled out the form correctly.', {
