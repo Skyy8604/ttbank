@@ -1,8 +1,26 @@
 <div>
   <h1>Historic cash transactions</h1>
-
   <div>
     <button type="submit" name="send">Filter</button>
     <button type="submit" name="send">12.12.2020 - 31.01.2021</button>
+  </div>
+
+  <div>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Name</th>
+        <th>Amout</th>
+        <th>Saldo</th>
+      </tr>
+      <div *ngFor="let transaction of transactions | async" [class="tableRow" ]>
+          <tr>
+            <td>{{transaction.dateTime}}</td>
+            <td>{{transaction.sender_account_id}}</td>
+            <td>{{transaction.amount}}</td>
+            <td>Saldo?</td>
+          </tr>
+      </div>
+    </table>
   </div>
 </div>

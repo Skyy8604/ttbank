@@ -1,6 +1,6 @@
-<form>
-  <link rel="stylesheet" href="deposit-money.component.css">
+<form [formGroup]="depositMoneyForm" (ngSubmit)="onSubmit()">
   <div>
+    <link rel="stylesheet" href="deposit-money.component.css">
     <h1>Deposit money</h1>
     <div class="wrapper-deposit-money">
       <div class="wrapper-left-column">
@@ -9,9 +9,9 @@
         </div>
         <div>
           <div class="columns_logo">
-          <img class="logo_left_column" src="logo_visa_mastercard.png">
-          <img class="logo_middle_column"src="logo_paypal.jpg">
-          <img class="logo_right_column" src="logo_TTBank.png">
+          <img class="logo_left_column" src="../../assets/logo_visa_mastercard.png">
+          <img class="logo_middle_column"src="../../assets/logo_paypal.jpg">
+          <img class="logo_right_column" src="../../assets/logo_TTBank.png">
           </div>
           <div class="togglebutton_logo" aria-required="true">
             <input type="radio" id="visa_master" name="payment_method" value="visa_master">
