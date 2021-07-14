@@ -3,6 +3,7 @@ package ch.bbcag.jakarta.ttbank.service;
 import ch.bbcag.jakarta.ttbank.exception.EmailAlreadyExistsException;
 import ch.bbcag.jakarta.ttbank.exception.WrongEmailException;
 import ch.bbcag.jakarta.ttbank.exception.WrongPasswordException;
+import ch.bbcag.jakarta.ttbank.model.MoneyAccount;
 import ch.bbcag.jakarta.ttbank.model.User;
 
 import javax.ejb.Stateless;

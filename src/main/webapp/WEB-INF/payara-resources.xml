@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//Payara.fish//DTD Payara Server 4 Resource Definitions//EN" "https://raw.githubusercontent.com/payara/Payara-Community-Documentation/master/docs/modules/ROOT/pages/schemas/payara-resources_1_6.dtd">
+<resources>
+  <jdbc-resource enabled="true"
+    pool-name="TTBankPool"
+    jndi-name="java:app/jdbc/TTBankResource"/>
+  <jdbc-connection-pool name="TTBankPool"
+    res-type="javax.sql.DataSource"
+    datasource-classname="com.mysql.cj.jdbc.MysqlDataSource"
+    steady-pool-size="3"
+    max-pool-size="3">
+
+    <property name="user" value="root"></property>
+    <property name="password" value="1234"></property>
+    <property name="ServerName" value="localhost"></property>
+    <property name="port" value="3306"></property>
+    <property name="DatabaseName" value="ttbank"></property>
+
+    <property name="useSSL" value="false"></property>
+    <property name="zeroDateTimeBehavior" value="CONVERT_TO_NULL"></property>
+    <property name="useUnicode" value="true"></property>
+    <property name="serverTimezone" value="UTC"></property>
+    <property name="autoReconnect" value="true"></property>
+    <property name="characterEncoding" value="UTF-8"></property>
+    <property name="useInformationSchema" value="true"></property>
+    <property name="nullCatalogMeansCurrent" value="true"></property>
+    <property name="nullNamePatternMatchesAll" value="false"></property>
+    <property name="allowPublicKeyRetrieval" value="true"></property>
+  </jdbc-connection-pool>
+</resources>
